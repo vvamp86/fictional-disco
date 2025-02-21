@@ -19,7 +19,7 @@ jlang19
 azhang88
 lzhu91
 
-## Should not be detected
+## Should not be detected (but would be nice)
 bg
 fhwang 
 
@@ -54,22 +54,57 @@ noreply@linkedin.com
 notifications@twitter-support.org
 info@slackhq.net
 alerts@dropbox-services.com
-secure-update@micros0ft-support.com (typo in domain)
-noreply@paypa1.com (number 1 instead of "l")
-account-verification@googl3mail.net (replaced "e" with "3")
+secure-update@micros0ft-support.com
+noreply@paypa1.com
+account-verification@googl3mail.net
 support@apple-security-check.info
-reset-password@amaz0n-payments.org (zero instead of "o")
+reset-password@amaz0n-payments.org
 
 
 # Potential misdetection
-[flake8] *I want to lower entropy to detect this* 
+[flake8] *I want to raise entropy to detect this rather than exclude a dir* 
 extend-ignore = E203
 exclude = .git,__pycache__,docs/source/conf.py,old,build,dist
 max-complexity = 10
+
+## variable names that are nice to detect
+api_key
+secret_key
+access_token
+auth_token
+bearer_token
+client_secret
+private_key
+username
+user_id
+user_email
+password
+passcode
+db_user
+db_pass
+ftp_password
+jwt_token
+encryption_key
+rsa_private_key
+aes_secret
+hmac_key
+ssl_cert
+ssh_key
+aws_secret_key
+aws_access_key_id
+gcp_api_key
+azure_client_secret
+slack_webhook_url
+firebase_secret
+
+## should not be detected
+color5 = "9cf001"
+brown7 = "7f6e46"
 
 # Very fake keys
 AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 AZURE_SUBSCRIPTION_KEY=3e5f9b2a6cdd4f44a8b2a7e2f3b4d8e5
 GOOGLE_API_KEY=AIzaSyA-1234567890abcdefgHIJKLMNOPQRST
+
 
