@@ -1,0 +1,47 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "whitelist"
+regexTarget = "match"
+regexes = [
+  '''flake8''',
+]
+
+[[rules]]
+id = "gtid-pattern"
+description = "Detect GTIDs in code"
+regex = '''\b90\d{7}\b'''
+tags = ["gtid"]
+
+[[rules]]
+id = "gt-emails"
+description = "Detect Emails in code"
+regex = '''\b\w{1,64}@\w{1,253}\.\w{2,63}\b'''
+tags = ["emails"]
+
+# Rules for different GT Username formats over the years.
+[[rules]]
+id = "gt-mid90s-username"
+description = "Detect Mid-90s GT Usernames"
+regex = '''\bgt[1-9][0-9]{3}[A-z]\b'''
+tags = ["gt-username", "legacy"]
+
+[[rules]]
+id = "gt-late90s-username"
+description = "Detect Late-90s GT Usernames"
+regex = '''\bgt[A-z][1-9][0-9]{2}[A-z]\b'''
+tags = ["gt-username", "legacy"]
+
+[[rules]]   
+id = "gt-staff-username"
+description = "Detect GT Staff Usernames"
+regex = '''\b[A-z]{2}[1-9][0-9]{0,3}\b'''
+tags = ["gt-username", "staff"]
+
+[[rules]]
+id = "gt-current-username"
+description = "Detect Current GT Usernames"
+regex = '''\b[A-z][A-z]{0,17}[aeiouyAEIOUY][A-z]{0,17}[1-9][0-9]{0,3}\b'''
+tags = ["gt-username", "current"]
+
