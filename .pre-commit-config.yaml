@@ -9,6 +9,6 @@ repos:
     hooks:
       - id: gitleaks
         name: gitleaks
-        entry: sh -c "gitleaks detect --source . || true"
+        entry: sh -c "(gitleaks detect --source . || echo '[WARNING] Secrets detected! Review output.')"
         language: system
         args: ["protect", "--staged", "--verbose"]
