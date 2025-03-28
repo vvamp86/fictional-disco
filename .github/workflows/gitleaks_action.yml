@@ -1,10 +1,11 @@
 name: gitleaks
 on:
-  pull_request:
-  push:
+  pull_request: 
+  push:  
+    branches: [ "main" ]
   workflow_dispatch:
   schedule:
-    - cron: "0 4 * * *" # run once a day at 4 AM
+    - cron: "0 4 * * *" # runs once a day at 4 AM
 jobs:
   scan:
     name: gitleaks
@@ -16,3 +17,16 @@ jobs:
       - uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: dawidd6/action-send-mail@v4
+        with:
+          connection_url: ${{secrets.MAIL_CONNECTION}}
+          server_address: stmp.gmail.com
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Gitleaks Warning
+          to: test@gmail.com, test2@gmail.com # ANYONE HERE
+          from: sender@gmail.com # Sender email
+          body: "Someone's been a baaad boooy."
+          attachments: report.txt
+          priority: high
+          
