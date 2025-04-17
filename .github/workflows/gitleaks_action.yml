@@ -3,9 +3,9 @@ on:
   pull_request: 
   push:  
     branches: [ "main" ]
-  workflow_dispatch:
-  schedule:
-    - cron: "0 4 * * *" # runs once a day at 4 AM
+#  workflow_dispatch:
+#  schedule:
+#    - cron: "0 4 * * *" # runs once a day at 4 AM
 jobs:
   scan:
     name: gitleaks
